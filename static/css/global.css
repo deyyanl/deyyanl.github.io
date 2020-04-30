@@ -27,3 +27,30 @@ img::-moz-selection
 {
     margin-top: 105px;
 }
+#dojajaFont
+{
+    font-family: 'SamsungThin';
+}
+.name
+{
+    font-size: 35px;
+    line-height: 1px;
+}
+.thicc
+{
+    font-family: 'SamsungBold';
+}
+.slogan
+{
+    line-height: 0px;
+}
+a
+{
+    text-decoration: none;
+    color: #fff;
+    transition-duration: 0.6s;
+}
+a:hover
+{
+    color: darkgray;
+}
