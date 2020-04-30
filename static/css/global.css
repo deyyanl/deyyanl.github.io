@@ -1,0 +1,18 @@
+::selection {
+    color: #000;
+    background: #fff;
+}
+::-moz-selection {
+    color: #000;
+    background: #fff;
+}
+img::selection 
+{
+    color: none;
+    background: none;
+}
+img::-moz-selection
+{
+    color: none;
+    background: none;
+}
