@@ -69,34 +69,57 @@
       <div class="publicSpeaks sekcija">
         <p class="hdrTxt">PUBLIC SPEAKS AND APPEARANCES</p>
         <p class="contentTxt">Tech hosted 2019 by Lanaco - 18th October 2019</p>
-        <div class="slideshow-container">
-          <div class="mySlides fade">
-            <div class="numbertext">1 / 2</div>
-            <img src="./static/img/public_speak_1.jpg" style="width:100%">
-            <div class="text">Tech hosted 2019 by Lanaco, Banja Luka, Bosnia</div>
-          </div>
-          <div class="mySlides fade">
-            <div class="numbertext">2 / 2</div>
-            <img src="./static/img/public_speak_2.jpg" style="width:100%">
-            <div class="text">Tech hosted 2019 by Lanaco, Banja Luka, Bosnia</div>
+        <div id="slides" data-component="slideshow">
+          <div role="list">
+            <div class="slide">
+              <img src="./static/img/public_speak_1.jpg" alt="Lanaco" style="width: 30%;">
+            </div>
+            <div class="slide">
+              <img src="./static/img/public_speak_2.jpg" alt="Lanaco" style="width: 30%;">
+            </div>
           </div>
         </div>
         <br>
+        <p class="contentTxt"><span class="thicc">Show:</span> Prelo u našem sokaku <br>
+        <span class="thicc">Broadcaster:</span> Happy TV <br>
+        <span class="thicc">Theme:</span> Satellites and space / Ventilators <br>
+        <span class="thicc">Date:</span> 24th August 2019 / 3rd May 2020<br> <br>
+          
+        <span class="thicc">Show:</span> Vikend vekerica <br>
+        <span class="thicc">Broadcaster:</span> Alternativna televizija (ATV) <br>
+        <span class="thicc">Theme:</span> Satellites and space <br>
+        <span class="thicc">Date:</span> 19th August 2019 <br> <br>
+
+        <span class="thicc">Show:</span> Dnevnik <br>
+        <span class="thicc">Broadcaster:</span> Radio Televizija Republike Srpske (RTRS) <br>
+        <span class="thicc">Theme:</span> Satellites and space <br>
+        <span class="thicc">Date:</span> 19th August 2019 <br> <br>
+
+        <span class="thicc">Broadcaster:</span> K3, RTV BN and others <br>
+        <span class="thicc">Theme:</span> Satellites and space <br>
+      </p>
       </div>
     </section>
   </center>
   <script>
-    var slideIndex = 0;
-    showSlides();
-    
-    function showSlides() {
-      var i;
-      var slides = document.getElementsByClassName("mySlides");
-      slideIndex++;
-      if (slideIndex > slides.length) {slideIndex = 1}    
-      slides[slideIndex-1].style.display = "block";  
-      setTimeout(showSlides, 2000); // Change image every 2 seconds
+    var slideshows = document.querySelectorAll('[data-component="slideshow"]');
+  
+    slideshows.forEach(initSlideShow);
+
+    function initSlideShow(slideshow) {
+
+      var slides = document.querySelectorAll(`#${slideshow.id} [role="list"] .slide`); // Get an array of slides
+
+      var index = 0, time = 2000;
+      slides[index].classList.add('active');  
+      
+      setInterval( () => {
+        slides[index].classList.remove('active');
+        index++;
+        if (index === slides.length) index = 0; 
+        slides[index].classList.add('active');
+      }, time);
     }
-    </script>
+  </script>
 </body>
 </html>
